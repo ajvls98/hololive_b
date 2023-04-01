@@ -48,9 +48,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'accountapp',
+    'accountapp', 'tailwind',
+    'theme', 'django_browser_reload'
 ]
-
+TAILWIND_APP_NAME = 'theme'
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -58,9 +59,11 @@ MIDDLEWARE = [
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.middleware.clickjacking.XFrameOptionsMiddleware', "django_browser_reload.middleware.BrowserReloadMiddleware",
 ]
-
+INTERNAL_IPS = [
+    "127.0.0.1",
+]
 ROOT_URLCONF = 'hololive_blog.urls'
 
 TEMPLATES = [
@@ -140,3 +143,4 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+NPM_BIN_PATH = "F:/program/nodejs/npm.cmd"
