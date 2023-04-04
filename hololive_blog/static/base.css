@@ -1,0 +1,7 @@
+@font-face {
+  font-family: Chicago;
+  src: url("ChicagoFLF.ttf");
+}
+.navbar_logo_font {
+  font-family: "Chicago";
+}
