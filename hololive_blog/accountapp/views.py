@@ -1,6 +1,8 @@
 from django.http import HttpResponse
 from django.shortcuts import render
 
+from accountapp.models import Hello_world
+
 # Create your views here.
 
 html_cond = '''
@@ -11,4 +13,15 @@ html_cond = '''
 
 
 def hello_world(request):
-    return render(request, 'accountapp/hello_world.html')
+
+    if request.method == 'POST':
+
+        temp = request.POST.get('hello_world_text_input')
+
+        new_hello_world = Hello_world()
+        new_hello_world.text = temp
+        new_hello_world.save()
+        return render(request, 'accountapp/hello_world.html', context={'hello_world_output': new_hello_world.text})
+
+    else:
+        return render(request, 'accountapp/hello_world.html', context={'text': 'get 요청입니다.'})
