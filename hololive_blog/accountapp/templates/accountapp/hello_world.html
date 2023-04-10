@@ -1,28 +1,25 @@
-{% extends 'base.html' %} 
-
+{% extends 'base.html' %}
 
 {% block content %}
-
-<div class="p-8 m-10 text-center">
-
-
-    {% if hello_world_output %}
-    <h1 class="text-3xl">{{ hello_world_output }}</h1>
-    {% endif %}
+  <div class="p-8 m-10 text-center">
 
 
-  <form action="/account/hello_world/" method="post">
-    {% csrf_token %}
-    <div><input
-      type="text" class=" rounded-lg m-2" name="hello_world_text_input"></input></div>
-    <input
-      type="submit" value="post"
-      class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full"
-    ></input>
-  </form>
+      {% if hello_world_list %}
+      {% for hello_world in hello_world_list %}
+      <h1 class="text-3xl">{{ hello_world.text }}</h1>
+      {% endfor %}
+      {% endif %}
 
 
-  
-</div>
+    <form action="/account/hello_world/" method="post">
+      {% csrf_token %}
+      <div><input
+        type="text" class=" rounded-lg m-2" name="hello_world_text_input"></input></div>
+      <input
+        type="submit" value="post"
+        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full"
+      ></input>
+    </form>
+  </div>
 
 {% endblock %}

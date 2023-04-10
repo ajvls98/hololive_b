@@ -1,15 +1,13 @@
-from django.http import HttpResponse
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.models import User
+from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
+from django.urls import reverse, reverse_lazy
+from django.views.generic import CreateView
 
 from accountapp.models import Hello_world
 
 # Create your views here.
-
-html_cond = '''
-<div style="display:flex; justify-content: center; align-items: center">
-<img src = "https://i.pinimg.com/564x/b8/60/70/b860700206194b5a6dcf62da391a54f5.jpg" alt = "이나니스" >
-</div>
-'''
 
 
 def hello_world(request):
@@ -21,7 +19,18 @@ def hello_world(request):
         new_hello_world = Hello_world()
         new_hello_world.text = temp
         new_hello_world.save()
-        return render(request, 'accountapp/hello_world.html', context={'hello_world_output': new_hello_world.text})
+
+        new_hello_world_list = Hello_world.objects.all()
+
+        return HttpResponseRedirect(reverse('accountapp:hello_world'))
 
     else:
-        return render(request, 'accountapp/hello_world.html', context={'text': 'get 요청입니다.'})
+        new_hello_world_list = Hello_world.objects.all()
+        return render(request, 'accountapp/hello_world.html', context={'hello_world_list': new_hello_world_list})
+
+
+class AccountCreateView(CreateView):
+    model = User
+    form_class = UserCreationForm
+    success_url = reverse_lazy('accountapp:hello_world')
+    template_name = 'accountapp/create.html'
