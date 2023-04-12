@@ -54,7 +54,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'accountapp', 'tailwind',
     'theme',
-    'django_browser_reload'
+    'django_browser_reload',
+    "crispy_forms",
+    "crispy_tailwind",
 ]
 TAILWIND_APP_NAME = 'theme'
 
@@ -158,3 +160,5 @@ NPM_BIN_PATH = "F:/program/nodejs/npm.cmd"
 
 LOGIN_REDIRECT_URL = reverse_lazy('accountapp:hello_world')
 LOGOUT_REDIRECT_URL = reverse_lazy('accountapp:login')
+CRISPY_ALLOWED_TEMPLATE_PACKS = "tailwind"
+CRISPY_TEMPLATE_PACK = "tailwind"
