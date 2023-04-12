@@ -3,7 +3,7 @@
  *
  * If you need the full config, get it from here:
  * https://unpkg.com/browse/tailwindcss@latest/stubs/defaultConfig.stub.js
-//  */
+ */
 // const Path = require("path");
 // const pwd = process.env.PWD;
 // const pySitePackages = process.env.pySitePackages;
@@ -65,9 +65,9 @@ module.exports = {
   ],
   theme: {
     extend: {
-      // colors: {
-      //   "my-color": "#34c9fe",
-      // },
+      colors: {
+        "my-color": "#34c9fe",
+      },
     },
   },
   plugins: [

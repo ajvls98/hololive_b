@@ -5,3 +5,20 @@
 .navbar_logo_font {
   font-family: "Chicago";
 }
+
+@font-face {
+  font-family: "NanumSaquareR";
+  src: url("NanumSquareR.ttf");
+}
+@font-face {
+  font-family: "NanumSaquareB";
+  src: url("NanumSquareB.ttf");
+}
+@font-face {
+  font-family: "NanumSaquareEB";
+  src: url("NanumSquareEB.ttf");
+}
+@font-face {
+  font-family: "NanumSaquareL";
+  src: url("NanumSquareL.ttf");
+}

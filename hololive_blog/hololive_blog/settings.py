@@ -57,6 +57,7 @@ INSTALLED_APPS = [
     'django_browser_reload',
     "crispy_forms",
     "crispy_tailwind",
+    'bootstrap5',
 ]
 TAILWIND_APP_NAME = 'theme'
 
